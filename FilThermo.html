@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filthermos - Diseño, Funcionalidad y Beneficios</title>
+    <style>
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+        body {
+
+            line-height: 1.6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header {
+ 
+            background-image: linear-gradient(to right, #55adfd, #8ae8e04d);
+            text-align: center;
+            padding: 1em;
+
+            width: 100%;
+        }
+
+        header h1 {
+            font-family: Arial;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+
+        }
+
+        @keyframes zoom {
+            from {
+              object-position: 0 50%;
+            }
+            to {
+              object-position: 100% 50%;
+            }
+          }
+
+
+        * {
+          border: 0;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; 
+        }
+        .card {
+            
+
+            position: relative;
+            grid-area: card;
+            align-self: center;
+            justify-self: center;
+            overflow: hidden;
+            display: inline-block;
+            margin-right:20px!important;
+
+            opacity: 1;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 1em;
+            padding: 1em;
+            max-width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+            font-size: var(--fontOrigin);
+            border-radius: 8px;
+            box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            -webkit-transition: all 1s ease;
+            transition: all .95s ease;
+
+        }
+        .card:hover {        
+           box-shadow: 0 40px 130px rgba(0, 0, 0, 0.6);
+           -webkit-transform: scale(1.1, 1.1);
+            transform: scale(1.1, 1.1);
+            opacity: 1 !important;
+        }
+
+        .tarjeta-opaca {
+            opacity: 0.2;
+            }
+        .card__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+        }
+        .card__image img {
+            -webkit-transform: scale(1.3, 1.3);
+            transform: scale(1.3, 1.3);
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            -webkit-transition: all var(--speed) ease;
+            transition: all var(--speed) ease;
+            animation-name: zoom;
+            animation-duration: 30s;
+            animation-direction: alternate;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+          }
+
+          .card:hover .card__profile img {
+            -webkit-transform: scale(1, 1)  translateZ(0);
+	    transform: scale(1, 1)  translateZ(0);
+	  }
+
+.card__bio {
+  position: relative;
+  -webkit-transform: translateY(30%);
+  transform: translateY(30%);
+  display: block;
+  margin: 22px 0 16px 0;
+  font-size: var(--fontMedium);
+  font-weight: var(--fontLight);
+  /*text-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.35);*/
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  -webkit-transition: all var(--speed) ease;
+  transition: all var(--speed) ease;
+}
+
+.card:hover .card__bio {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+        h2 {
+            font-size: 1.5em;
+            color: #4eaa6a;
+            margin-bottom: 0.5em;
+        }
+        h3 {
+            font-size: 2.0em;
+            color: #ffffff;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px #606060;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 250px;
+            display: block;
+            margin: 1em auto;
+        }
+
+        #instagram {
+            text-align: center;
+            margin-top: 2em;
+            width: 100%;
+        }
+
+        #instagram a {
+            font-size: 1.2em;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        #visitCounter {
+            text-align: center;
+            margin-top: 2em;
+            width: 100%;
+        }
+
+/* Base
+----------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color:rgba(41, 185, 228, 0.45);
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Base [END]
+----------------------------------------------------------- */
+/* Hero
+----------------------------------------------------------- */
+.hero {
+  width: 100%;
+  padding-bottom: 52.5%;
+  position: relative;
+  background-image: url('mainImage.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.hero:before {
+  content: "";
+  background-color: rgba(138, 232, 224, 0.3);
+  display: block;
+  width: 100%;
+  height: 100%;background: #DDD url('mainImage.jpg') repeat/repeat-x/repeat-y/no-repeat scroll/fixed top/center/bottom/x-%/x-pos left/center/right/y-%/y-pos;
+  
+  position: absolute;
+}
+.hero__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+ text-align: center;
+}
+.hero__title {
+  font-size: 9rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+.hero__text {
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+}
+
+/* Hero [END]
+----------------------------------------------------------- */
+/* Main Content
+----------------------------------------------------------- */
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+.main-content p {
+  -moz-column-count:0;
+       column-count: 0;
+}
+@media only screen and (max-width: 600px) {
+  .main-content p {
+    -moz-column-count: 1;
+         column-count: 1;
+  }
+}
+
+/* Main Content [END]
+----------------------------------------------------------- */
+
+ul {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translate(0%, -50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: block;
+  text-align: center;
+  margin: 0 10px;
+  border-radius: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-decoration: none;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(0deg, #ddd, #fff);
+  transition: .5s;
+}
+
+ul li a:hover {
+  box-shadow: 0 8px 10px rgba(228, 64, 95, 1);
+  text-decoration: none;
+
+}
+
+ul li a .fab {
+  widht: 100%;
+  height: 100%;
+  display: block;
+  background: linear-gradient(0deg, #fff, #ddd);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size: 24px;
+  color: #e4405f;
+  transition: .5s;
+
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FilTermo</h1>
+    </header>
+
+<div class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">FilTermo.</h1>
+    <p class="hero__text">Agua limpia y refrescante en todo momento.</p>
+  </div>
+</div>
+<section class="main-content">
+  <h2>Nuestro producto</h2>
+
+<div style="column-count: 2;">
+  <p>¿Te imaginas tener agua purificada y fresca en cualquier lugar que vayas? Con FilTermo, esto es posible. FilTermo es el termo más innovador que combina la tecnología de filtración con la moringa, una planta con propiedades purificadoras únicas.</p>
+  <p>FilTermo utiliza la tecnología de filtración de la moringa, una planta con propiedades purificadoras naturales. El filtro de moringa remueve hasta el 99% de las bacterias y contaminantes, incluyendo metales pesados, mientras mantiene los minerales esenciales que el cuerpo necesita.</p>
+  <p>¿Y qué hay de su diseño? FilTermo tiene un elegante diseño minimalista que lo hace adecuado para cualquier ocasión, ya sea en la oficina, en la universidad o en una excursión al aire libre. </p>
+
+<p> Además, su tapa hermética evita derrames, su doble pared mantiene la temperatura del agua por más tiempo, ya sea caliente o fría, y su capacidad de 500 ml te permite disfrutar de agua fresca durante todo el día. </p>
+  <p>Además, el termo está hecho de materiales duraderos y respetuosos con el medio ambiente, lo que lo convierte en una opción responsable para aquellos que desean reducir su huella de carbono.</p>
+  <p>En conclusión, FilTermo es una excelente opción para aquellos que buscan una forma fácil y efectiva de obtener agua purificada en cualquier momento y lugar. Su diseño elegante, su tecnología innovadora y su respeto por el medio ambiente lo convierten en una elección fácil y segura. Haz de FilTermo tu compañero de viaje y disfruta de agua fresca y pura en todo momento.</p>
+  <p>No esperes más para disfrutar del sabor y la pureza del agua filtrada con FilTermo. ¡No pierdas la oportunidad de tener siempre agua limpia y pura a mano!</p>
+</div>
+
+
+  <img src="https://img.freepik.com/premium-photo/water-bottle-background-lake-be-plastic-free-zero-waste-copy-space_234039-793.jpg?w=1800" alt="Inline image" style="border-radius: 10px;">
+
+</section>
+
+    <div class="card-container">
+    <div class="card ml-3" style="width: 60rem;">
+
+        <h3>Diseño</h3>
+        <figure  class="card__image">
+        <img src="https://img.freepik.com/premium-photo/closeup-steel-eco-thermo-water-bottle-background-lake-mountains_234039-360.jpg?w=1800" alt="FilTermo diseño">
+        </figure>
+        <p class="card__bio"  style="font-size:17px; color:#fff; font-weight:bold; text-shadow: 2px 2px #606060;">
+            El diseño de FilTermo combina elegancia y funcionalidad en un solo producto. Sus líneas modernas y colores llamativos lo convierten en un artículo atractivo a la vista, mientras que su estructura compacta y materiales de alta calidad garantizan durabilidad y resistencia.</p>
+
+    </div>
+
+    <div class="card ml-3" style="width: 60rem;">
+        <h3>Funcionalidad</h3>
+<figure  class="card__image">
+        <img src="filthermos_funcionalidad.png" alt="FilTermo diseño">
+        </figure>
+        <p class="card__bio" style="font-size:17px; color:#fff; font-weight:bold; text-shadow: 2px 2px #606060;">
+            FilTermo es un producto fácil de usar y altamente eficiente. Su tecnología de filtración avanzada garantiza la eliminación de impurezas y contaminantes, proporcionando agua limpia y segura en todo momento. Además, su diseño ergonómico y portátil permite llevarlo a cualquier lugar.</p>
+
+    </div>
+    <div class="card">
+        <h3>Beneficios</h3>
+        <figure  class="card__image">
+        <img src="filthermos_beneficios.png" alt="FilTermo diseño">
+        </figure>
+        <p class="card__bio" style="font-size:17px; color:#fff; font-weight:bold; text-shadow: 2px 2px #606060;">
+            Utilizar FilTermo brinda múltiples beneficios, como la reducción del consumo de agua embotellada, lo que disminuye la generación de residuos plásticos. Además, al contar con agua purificada en todo momento, se promueve una vida más saludable y se evita el consumo de agua contaminada. </p>
+
+    </div>
+
+    <div id="visitCounter">
+        <p>Visitas a la página: <span id="counter">0</span></p>
+    </div>
+    <div id="instagram">
+        <p style= color:#fff>Síguenos en Instagram: asdd</p>
+    </div>
+<div class="social-container">
+    <ul class="social-icons">
+        <li><a href="https://instagram.com/filtermoec"><i class="fa fa-instagram"></i></a></li>
+
+    <script>
+        let counter = document.getElementById("counter");
+        let visits = parseInt(localStorage.getItem("visits")) || 0;
+        visits++;
+        localStorage.setItem("visits", visits);
+        counter.textContent = visits;
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var cards = document.querySelectorAll(".card");
+
+      cards.forEach(function (card) {
+        card.addEventListener("mouseover", function () {
+          cards.forEach(function (t) {
+            t.classList.add("tarjeta-opaca");
+          });
+          card.classList.add("tarjeta-hover");
+        });
+
+        card.addEventListener("mouseout", function () {
+          cards.forEach(function (t) {
+            t.classList.remove("tarjeta-opaca");
+          });
+          cards.classList.remove(".card:hover");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
